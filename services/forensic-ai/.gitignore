@@ -1,0 +1,20 @@
+# Python virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Node modules
+node_modules/
+
+# Hardhat & build artifacts
+artifacts/
+cache/
+typechain-types/
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+Thumbs.db

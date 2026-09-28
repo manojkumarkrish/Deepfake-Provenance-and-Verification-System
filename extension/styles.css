@@ -1,0 +1,37 @@
+.df-scanner-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.df-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.df-verified {
+  background: rgba(16, 185, 129, 0.9); /* Emerald Green */
+  border: 1px solid #10b981;
+}
+
+.df-fake {
+  background: rgba(239, 68, 68, 0.9); /* Red Alert */
+  border: 1px solid #ef4444;
+}
+
+.df-unverified {
+  background: rgba(100, 116, 139, 0.85); /* Slate Gray */
+  border: 1px solid #64748b;
+}

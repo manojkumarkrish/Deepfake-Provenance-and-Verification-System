@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+    }
+    h3 {
+      font-size: 14px;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 12px;
+    }
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .status-item:last-child {
+      margin-bottom: 0;
+    }
+    .dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      background: #10b981;
+    }
+  </style>
+</head>
+<body>
+  <h3>🛡️ Deepfake Defense</h3>
+  <div class="status-card">
+    <div class="status-item">
+      <span>Forensic AI Node:</span>
+      <span id="ai-status"><span class="dot"></span> Online</span>
+    </div>
+    <div class="status-item">
+      <span>Registry Network:</span>
+      <span>Polygon (Local)</span>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

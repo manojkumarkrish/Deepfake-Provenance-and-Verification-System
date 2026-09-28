@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-5024cdda0d4d30d40ef79f8db706feae8e59d76c",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.13.0"
+  },
+  "userSourceNameMap": {
+    "contracts/MediaRegistry.sol": "project/contracts/MediaRegistry.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/MediaRegistry.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract MediaRegistry {\r\n    struct MediaInfo {\r\n        bool isVerified;\r\n        address creator;\r\n        uint256 timestamp;\r\n        string metadataUri;\r\n    }\r\n\r\n    mapping(string => MediaInfo) public registry;\r\n\r\n    event MediaRegistered(string pHash, address creator, uint256 timestamp);\r\n\r\n    function registerMedia(string memory _pHash, string memory _metadataUri) public {\r\n        require(!registry[_pHash].isVerified, \"Media already registered on-chain.\");\r\n        \r\n        registry[_pHash] = MediaInfo({\r\n            isVerified: true,\r\n            creator: msg.sender,\r\n            timestamp: block.timestamp,\r\n            metadataUri: _metadataUri\r\n        });\r\n\r\n        emit MediaRegistered(_pHash, msg.sender, block.timestamp);\r\n    }\r\n\r\n    function verifyMedia(string memory _pHash) public view returns (bool isVerified, address creator, uint256 timestamp, string memory metadataUri) {\r\n        MediaInfo memory media = registry[_pHash];\r\n        return (media.isVerified, media.creator, media.timestamp, media.metadataUri);\r\n    }\r\n}"
+      }
+    }
+  }
+}
